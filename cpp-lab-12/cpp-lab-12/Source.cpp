@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <deque>
 
 // Создаем класс обратного итератора
 template <typename T>
@@ -52,6 +53,29 @@ int main() {
         std::cout << *iter << " ";
     }
 
+    std::cout << std::endl;
+
+    std::vector<double> myVector2 = { 1.5, 56.67, 23.54, 24.0, 5.7 };
+
+    // Создаем обратный итератор для вектора
+    ReverseIterator<std::vector<double>> reverseIterator2 = make_reverse_iterator(myVector2, myVector2.size());
+
+    // Перебираем вектор в обратном порядке с использованием обратного итератора
+    for (auto iter = reverseIterator2; iter != make_reverse_iterator(myVector2, 0); ++iter) {
+        std::cout << *iter << " ";
+    }
+
+    std::cout << std::endl;
+
+    std::deque<int> myDeque = { 56, 32, 4, 47, 65, 39 };
+
+    // Создаем обратный итератор для вектора
+    ReverseIterator<std::deque<int>> reverseIterator3 = make_reverse_iterator(myDeque, myDeque.size());
+
+    // Перебираем вектор в обратном порядке с использованием обратного итератора
+    for (auto iter = reverseIterator3; iter != make_reverse_iterator(myDeque, 0); ++iter) {
+        std::cout << *iter << " ";
+    }
 
     return 0;
 }
